@@ -8,18 +8,34 @@ var Character = require("../models/character.js");
 
 // Routes
 // =============================================================
-module.exports = function(app) {
+module.exports = function (app) {
   // Search for Specific Character (or all characters) then provides JSON
-  app.get("/api/:characters?", function(req, res) {
+  app.get("/api/:characters?", function (req, res) {
     // If the user provides a specific character in the URL...
     if (req.params.characters) {
       // Then display the JSON for ONLY that character.
       // (Note how we're using the ORM here to run our searches)
-      Character.findOne({
+      Character.findAll({
         where: {
-          title: req.params.characters
-        }
-      }).then(function(result) {
+          $or: [{
+            title: {
+              $like: '%' + req.params.characters + '%'
+            }
+          }, {
+            metadata: {
+              $like: '%' + req.params.characters + '%'
+            }
+          }, {
+            type: {
+              $like: '%' + req.params.characters + '%'
+            }
+          }]
+        },
+        order: [
+          ['popularity', 'DESC']
+        ],
+        limit: 10
+      }).then(function (result) {
         return res.json(result);
       });
     }
@@ -27,14 +43,14 @@ module.exports = function(app) {
       // Otherwise...
       // Otherwise display the data for all of the characters.
       // (Note how we're using Sequelize here to run our searches)
-      Character.findAll({}).then(function(result) {
+      Character.findAll({}).then(function (result) {
         return res.json(result);
       });
     }
   });
 
   // If a user sends data to add a new character...
-  app.post("/api/new", function(req, res) {
+  app.post("/api/new", function (req, res) {
     // Take the request...
     var character = req.body;
 
