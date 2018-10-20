@@ -3,7 +3,7 @@
 // URL parameter. Our server then performs the search to grab that character from the Database.
 
 // when user hits the search-btn
-$("#search-btn").on("click", function () {
+$("#character-search").on("keyup", function () {
   // save the character they typed into the character-search input
   var searchedCharacter = $("#character-search")
     .val()
@@ -11,7 +11,7 @@ $("#search-btn").on("click", function () {
 
   // Using a RegEx Pattern to remove spaces from searchedCharacter
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
+  // searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
 
   // run an AJAX GET-request for our servers api,
   // including the user's character in the url
@@ -28,7 +28,7 @@ $("#search-btn").on("click", function () {
       // otherwise
       // append the character name
       for (var i = 0; i < data.length; i++) {
-        $("#well-section").append("<h2>" + data[i].title + "</h2>");
+        $("#well-section").append("<h2><a href=" + data[i].url + ">" + data[i].title + "</a></h2>");
         // the role
         //$("#well-section").append("<h3>URL: " + data[i].url + "</h3>");
         // the age
