@@ -28,7 +28,11 @@ $("#character-search").on("keyup", function () {
       // otherwise
       // append the character name
       for (var i = 0; i < data.length; i++) {
-        $("#well-section").append("<h2><a href=" + data[i].url + ">" + data[i].title + "</a></h2>");
+        var linkResults = $("<a>");
+        linkResults.html(data[i].title);
+        linkResults.attr("href", data[i].url).attr('target','newlink');;
+        linkResults.append("<br>");
+        $("#well-section").append(linkResults);
         // the role
         //$("#well-section").append("<h3>URL: " + data[i].url + "</h3>");
         // the age
