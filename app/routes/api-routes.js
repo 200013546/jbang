@@ -2,9 +2,11 @@ var Character = require("../models/character.js");
 module.exports = function (app) {
   app.get("/api/:characters?", function (req, res) {
     // check if spaces for multiple words
+    var reqChars = req.params.characters;
+    var words = reqChars.split(" ");
+    console.log(words);
 
-
-    if (req.params.characters) {
+    if (reqChars) {
       Character.findAll({
         where: {
           // Loop here
@@ -12,19 +14,27 @@ module.exports = function (app) {
 
           $or: [{
             title: {
-              $like: '%' + req.params.characters + '%'
+              $like: '%' + reqChars + '%'
+              // $Like: { $any: words}
+              // $like: { $any: ['power', 'api']}
             }
           }, {
             metadata: {
-              $like: '%' + req.params.characters + '%'
+              $like: '%' + reqChars + '%'
+              // $Like: { $any: words}
+              // $like: { $any: ['power', 'api']}
             }
           }, {
             type: {
-              $like: '%' + req.params.characters + '%'
+              $like: '%' + reqChars + '%'
+              //$Like: { $any: words}
+              // $like: { $any: ['power', 'api']}
             }
           }, {
             url: {
-              $like: '%' + req.params.characters + '%'
+              $like: '%' + reqChars + '%'
+              // $Like: { $any: words}
+              // $like: { $any: ['power', 'api']}
             }
           }]
         },
