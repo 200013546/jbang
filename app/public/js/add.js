@@ -8,13 +8,13 @@ $("#add-btn").on("click", function(event) {
   // make a newCharacter obj
   var newCharacter = {
     // name from name input
-    name: $("#name").val().trim(),
+    title: $("#title").val().trim(),
     // role from role input
-    role: $("#role").val().trim(),
+    url: $("#url").val().trim(),
     // age from age input
-    age: $("#age").val().trim(),
+    description: $("#description").val().trim(),
     // points from force-points input
-    forcePoints: $("#force-points").val().trim()
+    type: $("#type").val().trim()
   };
 
   // send an AJAX POST-request with jQuery
@@ -28,9 +28,9 @@ $("#add-btn").on("click", function(event) {
     });
 
   // empty each input box by replacing the value with an empty string
-  $("#name").val("");
-  $("#role").val("");
-  $("#age").val("");
-  $("#force-points").val("");
+  $("#title").val("");
+  $("#url").val("");
+  $("#description").val("");
+  $("#type").val("");
 
 });

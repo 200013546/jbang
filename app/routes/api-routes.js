@@ -58,9 +58,9 @@ module.exports = function (app) {
 
   app.post("/api/new", function (req, res) {
     var character = req.body;
-    var title = character.name.replace(/\s+/g, "").toLowerCase();
+    // var title = character.title.replace(/\s+/g, "").toLowerCase();
     Character.create({
-      title: title,
+      title: character.title,
       url: character.url,
       metadata: character.metadata,
       type: character.type
