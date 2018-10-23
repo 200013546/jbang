@@ -12,7 +12,7 @@ $("#add-btn").on("click", function(event) {
     // role from role input
     url: $("#url").val().trim(),
     // age from age input
-    description: $("#description").val().trim(),
+    metadata: $("#metadata").val().trim(),
     // points from force-points input
     type: $("#type").val().trim()
   };
@@ -30,7 +30,7 @@ $("#add-btn").on("click", function(event) {
   // empty each input box by replacing the value with an empty string
   $("#title").val("");
   $("#url").val("");
-  $("#description").val("");
+  $("#metadata").val("");
   $("#type").val("");
 
 });

@@ -1,0 +1,50 @@
+.jumbotron {
+    margin-top: 20px;
+    background-image: url("../img/logo.JPG");
+    background-size: 35%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 100px;
+
+    background-color: #ffffff;
+    border: none;
+    color: white;
+    
+}
+
+.jumbotron .container {
+    position:relative;
+    top:20px;
+  }
+
+.center{
+    text-align: center;
+  }
+
+img {
+    position: relative;
+    width: 50%;
+    height: 50%;
+  }
+
+  
+  @media (min-width: 992px) {
+    body {
+      padding-top: 10px;
+    }
+  }
+  
+
+button{
+    background-color: #337ab7;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+}

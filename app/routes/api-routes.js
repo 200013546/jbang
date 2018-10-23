@@ -4,47 +4,91 @@ module.exports = function (app) {
     // check if spaces for multiple words
     var reqChars = req.params.characters;
     var words = reqChars.split(" ");
+    var andStatement = [];
+    var orStatement = [];
+    var titleStatement = [];
+    var urlStatement = [];
+    var mdStatement = [];
+    var typeStatement = [];
     console.log(words);
+    for (var i = 0; i < words.length; i++) {
+      andStatement.push({
+        title: {
+          $like: '%' + words[i] + '%'
+        }
+      }
+      )
 
+      orStatement.push({
+        title: {
+          $like: '%' + words[i] + '%'
+        }
+      }, {
+          url: {
+            $like: '%' + words[i] + '%'
+          }
+        }, {
+          metadata: {
+            $like: '%' + words[i] + '%'
+          }
+      }, {
+        type: {
+          $like: '%' + words[i] + '%'
+        }
+      }
+    )
+
+      titleStatement.push({
+        title: {
+          $like: '%' + words[i] + '%'
+        }
+      }
+      )
+
+      urlStatement.push({
+        url: {
+          $like: '%' + words[i] + '%'
+        }
+      }
+      )
+
+      mdStatement.push({
+        metadata: {
+          $like: '%' + words[i] + '%'
+        }
+      }
+      )
+
+      typeStatement.push({
+        type: {
+          $like: '%' + words[i] + '%'
+        }
+      }
+      )
+
+    }
+
+    console.log(orStatement);
+    console.log(titleStatement);
+    console.log(urlStatement);
+    console.log(typeStatement);
+    // console.log(orStatement);
     if (reqChars) {
       Character.findAll({
         where: {
-          // Loop here
-
-
-          $or: [{
-            title: {
-              $like: '%' + reqChars + '%'
-              // $Like: { $any: words}
-              // $like: { $any: ['power', 'api']}
-            }
-          }, {
-            metadata: {
-              $like: '%' + reqChars + '%'
-              // $Like: { $any: words}
-              // $like: { $any: ['power', 'api']}
-            }
-          }, {
-            type: {
-              $like: '%' + reqChars + '%'
-              //$Like: { $any: words}
-              // $like: { $any: ['power', 'api']}
-            }
-          }, {
-            url: {
-              $like: '%' + reqChars + '%'
-              // $Like: { $any: words}
-              // $like: { $any: ['power', 'api']}
-            }
-          }]
+          // $and: andStatement,
+          $or: orStatement
+          //titleStatement,
+          //$or: urlStatement,
+          //$or: typeStatement
         },
 
 
-        // End of loop
+
         order: [
           ['popularity', 'DESC']
         ],
-        limit: 10
+        limit: 30
       }).then(function (result) {
         return res.json(result);
       });
