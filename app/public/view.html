@@ -13,38 +13,39 @@
 	<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
 	<!-- Designed to be responsive to mobile devices -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
 </head>
 <body>
-	<div class="jumbotron">
+	<div class="jumbotron animated tada">
 		<div class="container"
 			<div class="row">
 		</div>
 	</div>
 
-	<center><p class="text-center"><p><a class="btn btn-primary btn-md" href="./add.html" role="button" id="add-btn"><span class="fa fa-fire"></span> Add a Link</a></p>
+	<center><p class="text-center"></p><a class="btn btn-primary btn-md" href="./add.html" role="button" id="add-btn"><span class="fa fa-fire"></span> Add Link</a></p>
 	</center>
 
-
+<div class="col-md-12">
 <div class="row">
-	<div class="col-md-12">
-				
+	
+		<div class="card-body">
+			<label for="character-search"></label>
+			<input type="text" id="character-search" class="form-control" placeholder="Search">
+		</div>
+
+
+		
 	</div>
 </div>
-		<div class="card-body">
-			<label for="character-search">Search</label>
-			<input type="text" id="character-search" class="form-control">
-		</div>
-	</div>
+</div>
 
-
-
-		<div class="row">
+<div class="col-md-12" id="link">
+		<div class="row-md-12">
 			<div class="col-lg-12">
-				<div class="card">
-					<div class="card-header">
+				<div class="card" id="result">
+					<!-- <div class="card-header">
 						<h3 class="card-title"><strong>Link Results</strong></h3>
-					</div>
+					</div> -->
 					<div class="card-body" id="well-section">
 
 						<!-- Content will go in here -->
@@ -54,7 +55,7 @@
 			</div>
 		</div>
 	</div>
-
+</div>
 
 	
 <!-- Custom Script -->

@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "animate.css": "^3.7.0",
     "autocompleter": "^2.1.5",
     "body-parser": "^1.15.2",
     "dotenv": "^6.1.0",

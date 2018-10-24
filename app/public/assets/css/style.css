@@ -1,12 +1,12 @@
 .jumbotron {
-    margin-top: 20px;
+    margin: 20px;
     background-image: url("../img/logo.JPG");
-    background-size: 35%; 
+    background-size: 20%; 
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     min-height: 100px;
-
+    padding-top: 60px;
     background-color: #ffffff;
     border: none;
     color: white;
@@ -18,6 +18,72 @@
     top:20px;
   }
 
+  p {
+    margin: 20px;
+
+    /* background-color: blue */
+  }
+
+.text-right {
+    margin-bottom: 10px;
+    background-color: #fa8b8b;
+}
+
+.form-control {
+    word-wrap: break-word;
+    display: flex;
+    flex: 100%;
+    width: 420px;
+    height: 34px;
+
+}
+
+.card {
+    margin-left: 400px;
+    margin-right: 400px;
+   
+}
+
+#title, #url, #metadata, #type {
+    align-content: flex-start;
+    
+}
+
+#result {
+
+    width: 100%;
+    align-self: auto; 
+
+    padding-left: 140px; 
+    border: none;
+    color: white;
+}
+
+.card-title {
+   margin: 0px;
+
+}
+#character-search {
+    display: flex;
+    flex: 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+    width: 33.3%;
+    height: 34px;
+    margin-left: 33.3%;
+    
+}
+
+.searchRow {
+    float: center;
+}
+
+/* .card-header {
+    width: 420px;
+    height: auto;
+
+}  */
 .center{
     text-align: center;
   }
@@ -35,7 +101,21 @@ img {
     }
   }
   
+#add-btn {
+    padding: auto;
+  
+}
 
+#add-link {
+    padding: auto;
+    margin: auto;
+    float: center;
+}
+
+#home-btn {
+    padding: auto;
+
+}
 button{
     background-color: #337ab7;
     border: none;

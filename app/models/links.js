@@ -7,7 +7,7 @@ var Sequelize = require("sequelize");
 var sequelize = require("../config/connection.js");
 
 // Creates a "Character" model that matches up with DB
-var Character = sequelize.define("links", {
+var Link = sequelize.define("links", {
   // the routeName gets saved as a string
   title: Sequelize.STRING,
   // the name of the character (a string)
@@ -15,11 +15,11 @@ var Character = sequelize.define("links", {
   // the character's role (a string)
   metadata: Sequelize.TEXT,
   // the character's age (a string)
-  type: Sequelize.STRING
+  typeid: Sequelize.STRING
 });
 
 // Syncs with DB
-Character.sync();
+Link.sync();
 
 // Makes the Character Model available for other files (will also create a table)
-module.exports = Character;
+module.exports = Link;
