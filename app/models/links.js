@@ -1,25 +1,54 @@
-// Dependencies
-// =============================================================
-
-// Sequelize (capital) references the standard library
 var Sequelize = require("sequelize");
-// sequelize (lowercase) references our connection to the DB.
 var sequelize = require("../config/connection.js");
-
-// Creates a "Character" model that matches up with DB
 var Link = sequelize.define("links", {
-  // the routeName gets saved as a string
   title: Sequelize.STRING,
-  // the name of the character (a string)
   url: Sequelize.STRING,
-  // the character's role (a string)
   metadata: Sequelize.TEXT,
-  // the character's age (a string)
   typeid: Sequelize.STRING
 });
-
-// Syncs with DB
 Link.sync();
-
-// Makes the Character Model available for other files (will also create a table)
 module.exports = Link;
+
+
+// module.exports = function(sequelize, DataTypes) {
+//   var Links = sequelize.define("Links", {
+//     title: {
+//       type: DataTypes.STRING,
+//       allowNull: false,
+//       validate: {
+//         len: [1]
+//       }
+//     },
+//     url: {
+//       type: DataTypes.STRING,
+//       allowNull: false,
+//       len:[1]
+//     },
+//     typeid: {
+//       type: DataTypes.STRING,
+//       allowNull: false,
+//       len:[1]
+//     },
+//     metadata: {
+//       type: DataTypes.TEXT,
+//       allowNull: true
+//     },
+//     typeid: {
+//       type: DataTypes.STRING,
+//       allowNull: false,
+//       len:[1]
+//     }
+//   });
+
+//   Post.associate = function(models) {
+//     // We're saying that a Post should belong to an Author
+//     // A Post can't be created without an Author due to the foreign key constraint
+//     Post.belongsTo(models.Author, {
+//       foreignKey: {
+//         allowNull: false
+//       }
+//     });
+//   };
+
+//   return Post;
+// };

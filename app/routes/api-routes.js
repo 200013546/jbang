@@ -37,6 +37,7 @@ module.exports = function (app) {
         )
       }
 
+      // Query Start
       if (reqChars) {
         Links.findAll({
           where: {
@@ -47,6 +48,7 @@ module.exports = function (app) {
               { $and: typeStatement }
             ]
           },
+          //include: [Links.Types],
           order: [
             ['popularity', 'DESC']
           ],
@@ -63,9 +65,10 @@ module.exports = function (app) {
     } else {
       return res.json(null);
     }
+    // Query Ends
   });
   app.post("/api/new", function (req, res) {
-    var Links = req.body;
+    var link = req.body;
     Links.create({
       title: link.title,
       url: link.url,
