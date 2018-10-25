@@ -1,5 +1,8 @@
 .jumbotron {
-    margin: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 0%;
     background-image: url("../img/logo.JPG");
     background-size: 20%; 
     background-position: center;
@@ -16,17 +19,21 @@
 .jumbotron .container {
     position:relative;
     top:20px;
+}
+
+.card-body {
+    margin: 0px;
   }
 
-  p {
+
+p {
     margin: 20px;
-
     /* background-color: blue */
-  }
+}
 
 .text-right {
-    margin-bottom: 10px;
-    background-color: #fa8b8b;
+   margin-bottom: 10px;
+    
 }
 
 .form-control {
@@ -35,7 +42,6 @@
     flex: 100%;
     width: 420px;
     height: 34px;
-
 }
 
 .card {
@@ -53,11 +59,15 @@
 
     width: 100%;
     align-self: auto; 
-
-    padding-left: 3%; 
-    border: none;
+    padding-left: 70px; 
+    border: transparent;
     color: white;
+    margin-right: auto;
+    margin-left: auto;
+    position: inherit; 
+    
 }
+
 
 .card-title {
    margin: 0px;
@@ -71,12 +81,12 @@
     flex-basis: 100%;
     width: 33.3%;
     height: 34px;
-    margin-left: 33.3%;
-    
+    margin-left: 33.3%; 
 }
 
 .searchRow {
     float: center;
+    
 }
 
 /* .card-header {
@@ -86,6 +96,7 @@
 }  */
 .center{
     text-align: center;
+   
   }
 
 img {
@@ -105,6 +116,7 @@ img {
     padding: auto;
   
 }
+
 
 #add-link {
     padding: auto;
